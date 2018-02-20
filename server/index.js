@@ -23,6 +23,6 @@ router.post('/', handlers.create);
 router.put('/:id', handlers.update);
 
 /* Namespaces */
-app.use('/api/counter', auth, router);
+app.use('/api/lists', auth, router);
 
 app.listen(port, () => console.info('Listening on port', port));

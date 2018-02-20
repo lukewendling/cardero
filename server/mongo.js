@@ -1,0 +1,39 @@
+const { MongoClient, ObjectID } = require('mongodb');
+const { db: { uri, name: dbName } } = require('./conf');
+
+const actions = {
+  async find(collName, id) {
+    return this.exec(async db => {
+      const doc = await db.collection(collName).findOne({ _id: ObjectID(id) });
+      // append dev-friendly 'id' attribute.
+      doc.id = doc._id;
+      return doc;
+    });
+  },
+
+  async create(collName, attrs) {
+    return this.exec(async db => {
+      const res = await db.collection(collName).insertOne(attrs);
+      // append dev-friendly 'id' attribute.
+      return Object.assign(attrs, { id: res.insertedId });
+    });
+  },
+
+  async exec(action) {
+    let client;
+
+    try {
+      client = await MongoClient.connect(uri);
+      const db = client.db(dbName);
+      const res = await action(db);
+      client.close();
+      return res;
+    } catch (err) {
+      console.error(err.stack);
+      client.close();
+      return { error: err.message };
+    }
+  }
+};
+
+module.exports = actions;

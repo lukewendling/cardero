@@ -1,0 +1,23 @@
+{
+  "login": {
+    "layout": { "header": null, "main": { "type": "Login", "props": {} } }
+  },
+  "new-list": {
+    "layout": {
+      "header": {
+        "type": "PageHeader",
+        "props": { "icon": "users", "title": "New List" }
+      },
+      "main": { "type": "NewList", "props": {} }
+    }
+  },
+  "list": {
+    "layout": {
+      "header": {
+        "type": "PageHeader",
+        "props": { "icon": "users", "title": "List" }
+      },
+      "main": { "type": "List", "props": {} }
+    }
+  }
+}

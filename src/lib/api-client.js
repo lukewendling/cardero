@@ -5,18 +5,18 @@ const TOKEN_NAME = 'auth-token';
 const _ = require('lodash');
 
 const actions = {
-  // async create(addr) {
-  //   console.info('create called', addr);
-  //   return this.fetch('api/counter', 'POST', { addr, count: 0 });
-  // },
+  async create(resourceType, attrs) {
+    console.info('create called', attrs);
+    return this.fetch(`api/${resourceType}`, 'POST', attrs);
+  },
   // async update(addr, attrs) {
   //   console.info('update called', addr, attrs);
   //   return this.fetch(`api/counter/${addr}`, 'PUT', attrs);
   // },
-  // async find(addr) {
-  //   console.info('find called', addr);
-  //   return this.fetch(`api/counter/${addr}`, 'GET');
-  // },
+  async find(resourceType, id) {
+    console.info('find called', id);
+    return this.fetch(`api/${resourceType}/${id}`, 'GET');
+  },
   // async findOrCreate(addr) {
   //   console.info('findorcreate called', addr);
   //   let user = await this.find(addr);
