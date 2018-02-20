@@ -7,13 +7,8 @@ function ListFactory() {
     slug: '',
     desc: '',
     private: false,
-    items: [
-      {
-        title: '',
-        url: '',
-        desc: ''
-      }
-    ]
+    items: [{ title: '', url: '', desc: '' }],
+    comments: [{ name: '', body: '', created: Date.now() }]
   };
 
   let list = Object.create(base, {
@@ -25,6 +20,9 @@ function ListFactory() {
     // remove empty items (those with no title)
     this.attrs.items = this.attrs.items.filter(
       item => !_.isEmpty(item.title.trim())
+    );
+    this.attrs.comments = this.attrs.comments.filter(
+      item => !_.isEmpty(item.name.trim())
     );
     return base.create.bind(this)();
   };

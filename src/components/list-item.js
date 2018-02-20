@@ -33,6 +33,7 @@ class ListItem extends React.Component {
               value={item.title}
               onChange={onChange}
               autoComplete="off"
+              required
             />
           </Form.Field>
           <Form.Field required width={5}>
@@ -42,6 +43,7 @@ class ListItem extends React.Component {
               value={item.url}
               onChange={onChange}
               autoComplete="off"
+              required
             />
           </Form.Field>
           <Form.Field required width={6}>
@@ -50,7 +52,7 @@ class ListItem extends React.Component {
               name={`items[${this.props.index}].desc`}
               value={item.desc}
               onChange={onChange}
-              autoComplete="off"
+              required
             />
           </Form.Field>
         </Form.Group>
