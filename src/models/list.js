@@ -31,4 +31,9 @@ function ListFactory() {
   return list;
 }
 
+// add static methods
+ListFactory._name = 'lists';
+ListFactory.findById = base.findById.bind(ListFactory);
+ListFactory.find = base.find.bind(ListFactory);
+
 export default ListFactory;

@@ -6,7 +6,7 @@ export default class List extends React.Component {
   state = { list: null };
 
   async componentDidMount() {
-    const list = await ListFactory().findById(this.props.id);
+    const list = await ListFactory.findById(this.props.id);
     console.info(list);
     this.setState({ list });
   }
