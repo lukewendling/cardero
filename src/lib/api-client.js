@@ -13,9 +13,18 @@ const actions = {
   //   console.info('update called', addr, attrs);
   //   return this.fetch(`api/counter/${addr}`, 'PUT', attrs);
   // },
-  async find(resourceType, id) {
-    console.info('find called', id);
+  async findById(resourceType, id) {
+    console.info('findById called', id);
     return this.fetch(`api/${resourceType}/${id}`, 'GET');
+  },
+  async find(resourceType, query = {}, options = {}) {
+    console.info('find called', query, options);
+    return this.fetch(
+      `api/${resourceType}?query=${JSON.stringify(
+        query
+      )}&options=${JSON.stringify(options)}`,
+      'GET'
+    );
   },
   // async findOrCreate(addr) {
   //   console.info('findorcreate called', addr);

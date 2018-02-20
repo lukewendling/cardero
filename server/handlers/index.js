@@ -1,14 +1,24 @@
 const jwt = require('jsonwebtoken');
-const db = require('./mongo');
+const db = require('../mongo');
 const SECRET_KEY = process.env.SECRET_KEY || 'somethingsecret';
 
 const handlers = {
   async find(req, res) {
-    const doc = await db.find('lists', req.params.id);
-    if (doc) {
-      res.json(doc);
+    if (req.params.id) {
+      const doc = await db.findById('lists', req.params.id);
+      if (doc) {
+        res.json(doc);
+      } else {
+        res.status(404).json({});
+      }
     } else {
-      res.status(404).json({});
+      // TODO: sanitize query
+      const docs = await db.find(
+        'lists',
+        JSON.parse(req.query.query || {}),
+        JSON.parse(req.query.options || {})
+      );
+      res.json(docs);
     }
   },
   async create(req, res) {

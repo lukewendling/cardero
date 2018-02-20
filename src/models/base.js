@@ -10,8 +10,12 @@ const base = {
     return apiClient.create(this._name, this.attrs);
   },
   // implicitly static
-  find(id) {
-    return apiClient.find(this._name, id);
+  findById(id) {
+    return apiClient.findById(this._name, id);
+  },
+  // implicitly static
+  find(query = {}, options = {}) {
+    return apiClient.find(this._name, query, options);
   }
   // expects static usage but should be instance
   // patch(query, updates = {}) {

@@ -12,7 +12,7 @@ export default class TopMenu extends React.Component {
   render() {
     const { activeItem } = this.props;
     return (
-      <Menu pointing>
+      <Menu pointing inverted>
         <Menu.Item
           name="login"
           active={activeItem === 'login'}

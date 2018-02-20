@@ -16,7 +16,7 @@ app.use(cors());
 /* Routes */
 app.post('/auth', handlers.auth);
 
-router.get('/:id', handlers.find);
+router.get('/:id?', handlers.find);
 
 router.post('/', handlers.create);
 
