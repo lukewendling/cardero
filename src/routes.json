@@ -1,12 +1,13 @@
 {
   "login": {
+    "public": true,
     "layout": { "header": null, "main": { "type": "Login", "props": {} } }
   },
   "new-list": {
     "layout": {
       "header": {
         "type": "PageHeader",
-        "props": { "icon": "users", "title": "New List" }
+        "props": { "icon": "unordered list", "title": "New List" }
       },
       "main": { "type": "NewList", "props": {} }
     }
@@ -15,7 +16,7 @@
     "layout": {
       "header": {
         "type": "PageHeader",
-        "props": { "icon": "users", "title": "List" }
+        "props": { "icon": "unordered list", "title": "List" }
       },
       "main": { "type": "List", "props": {} }
     }
