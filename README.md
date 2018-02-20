@@ -1,5 +1,10 @@
 ## Demo app
 
+### Dependencies
+
+* Node 8+
+* Mongo 3.2+
+
 ### Install app
 
 ```
@@ -7,4 +12,5 @@
 yarn install
 yarn start # CRA server
 yarn run watch # server
+google-chrome http://localhost:3000
 ```
