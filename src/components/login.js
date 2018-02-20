@@ -30,7 +30,7 @@ export default class Login extends React.Component {
 
         try {
           await apiClient.auth({ addr, sig: result.result, data });
-          this.props.go('bets');
+          this.props.go('new-list');
         } catch (err) {
           this.setState({ error: err.message });
         }

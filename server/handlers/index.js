@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const sigUtil = require('eth-sig-util');
 const db = require('../mongo');
 const SECRET_KEY = process.env.SECRET_KEY || 'somethingsecret';
 
