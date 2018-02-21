@@ -2,6 +2,7 @@
 
 ### Dependencies
 
+* Metamask browser extension
 * Node 8+
 * Mongo 3.2+
 
